@@ -1,5 +1,7 @@
 const express = require('express');
 const CryptoJS = require('crypto-js');
+const jwt = require('jsonwebtoken');
+
 const User = require('../models/User');
 
 // REGISTER
@@ -40,8 +42,17 @@ authRouter.post('/login', async (req, res) => {
       res.status(401).json('Wrong credentials!');
     }
 
+    const accessToken = jwt.sign(
+      {
+        id: user._id,
+        isAdmin: user.isAdmin,
+      },
+      process.env.JWT_SECRET_KEY,
+      { expiresIn: '1d' }
+    );
+
     const { password, ...others } = user._doc; // mongodb để các thông tin khác trong property _doc
-    res.status(200).json(others);
+    res.status(200).json({ ...others, accessToken });
   } catch (err) {
     res.status(500).json(err);
   }
