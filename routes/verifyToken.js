@@ -4,7 +4,9 @@ const jwt = require('jsonwebtoken');
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers.token;
   if (authHeader) {
-    const token = authHeader.split(' ')[1]; // Bearer <token>
+    const token = authHeader.split(' ')[1]; // Because Bearer <token>
+
+    //user muỐn đặt là gì cũng đc
     jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
       if (err) {
         return res.status(403).json('Token is not valid !');
@@ -20,12 +22,26 @@ const verifyToken = (req, res, next) => {
 const verifyTokenAndAuthorization = (req, res, next) => {
   verifyToken(req, res, () => {
     // console.log(req);
-    if(req.user.id === req.params.id || req.user.isAdmin) {
+    if (req.user.id === req.params.id || req.user.isAdmin) {
       next();
     } else {
-      res.status(403).json("You are not allowed to access this!");
+      res.status(403).json('You are not allowed to access this!');
     }
-  })
+  });
+};
 
-}
-module.exports = { verifyToken, verifyTokenAndAuthorization };
+const verifyTokenAndAdmin = (req, res, next) => {
+  // console.log(req.user);
+  verifyToken(req, res, () => {
+    if (req.user.isAdmin) {
+      next();
+    } else {
+      res.status(403).json('You are not allowed to access this!');
+    }
+  });
+};
+module.exports = {
+  verifyToken,
+  verifyTokenAndAuthorization,
+  verifyTokenAndAdmin,
+};
