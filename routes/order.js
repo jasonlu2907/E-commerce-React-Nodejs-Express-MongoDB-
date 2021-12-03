@@ -59,7 +59,7 @@ orderRouter.route('/:id').put(verifyTokenAndAdmin, async (req, res) => {
         $set: req.body, // SET EVERYTHING INSIDE THE BODY
       },
       { new: true }
-    ); // RETURN a value for updatedUser
+    ); // RETURN a value for updatedOrder
     res.status(200).json(updatedOrder);
   } catch (err) {
     res.status(500).json(err);
@@ -67,7 +67,7 @@ orderRouter.route('/:id').put(verifyTokenAndAdmin, async (req, res) => {
 });
 
 // ---------------- DELETE -------------------
-orderRouter.route(':/id').delete(verifyTokenAndAdmin, async (req, res) => {
+orderRouter.route('/:id').delete(verifyTokenAndAdmin, async (req, res) => {
   try {
     await Order.findByIdAndDelete(req.params.id);
     res.status(200).json('Order has been deleted !');
@@ -79,8 +79,8 @@ orderRouter.route(':/id').delete(verifyTokenAndAdmin, async (req, res) => {
 // GET MONTHLY INCOME
 orderRouter.route('/income').get(verifyTokenAndAdmin, async (req, res) => {
   const date = new Date();
-  const lastMonth = new Date(date.setMonth(date.getMonth() - 1)); // Last year since today
-  const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() - 1));
+  const lastMonth = new Date(date.setMonth(date.getMonth() - 1)); // Last month since today
+  const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() - 1)); // The month before last
 
   try {
     const income = await Order.aggregate([

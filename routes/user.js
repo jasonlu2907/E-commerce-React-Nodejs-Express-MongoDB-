@@ -69,7 +69,7 @@ userRouter.route('/:id').put(verifyTokenAndAuthorization, async (req, res) => {
 
 // ---------------- DELETE -------------------
 userRouter
-  .route(':/id')
+  .route('/:id')
   .delete(verifyTokenAndAuthorization, async (req, res) => {
     try {
       await User.findByIdAndDelete(req.params.id);

@@ -10,19 +10,16 @@ const {
 const cartRouter = express.Router();
 
 // -------- CREATE ---------
-cartRouter
-  .route('/')
-  .post(verifyToken, async (req, res) => {
-    console.log(req);
-    const newCart = new Cart(req.body);
+cartRouter.route('/').post(verifyToken, async (req, res) => {
+  const newCart = new Cart(req.body);
 
-    try {
-      const savedCart = await newCart.save();
-      res.status(200).json(savedCart);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+  try {
+    const savedCart = await newCart.save();
+    res.status(200).json(savedCart);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // ---------------- GET CÁCH 1-------------------
 // GET USER CART
@@ -45,7 +42,7 @@ cartRouter.route('/').get(verifyTokenAndAdmin, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
 // ---------------- GET CÁCH 2-------------------
 // cartRouter
@@ -62,7 +59,7 @@ cartRouter.route('/:id').put(verifyTokenAndAuthorization, async (req, res) => {
         $set: req.body, // SET EVERYTHING INSIDE THE BODY
       },
       { new: true }
-    ); // RETURN a value for updatedUser
+    ); // RETURN a value for updatedCart
     res.status(200).json(updatedCart);
   } catch (err) {
     res.status(500).json(err);

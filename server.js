@@ -5,6 +5,8 @@ dotenv.config({
 });
 
 const app = require('./app');
+const cors = require('cors');
+app.use(cors());
 
 const DB = process.env.DATABASE_URL.replace(
     `<PASSWORD>`,

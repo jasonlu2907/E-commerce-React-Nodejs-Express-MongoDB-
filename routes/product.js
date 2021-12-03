@@ -72,7 +72,7 @@ productRouter.route('/:id').put(verifyTokenAndAdmin, async (req, res) => {
         $set: req.body, // SET EVERYTHING INSIDE THE BODY
       },
       { new: true }
-    ); // RETURN a value for updatedUser
+    ); // RETURN a value for updatedProduct
     res.status(200).json(updatedProduct);
   } catch (err) {
     res.status(500).json(err);
@@ -80,7 +80,7 @@ productRouter.route('/:id').put(verifyTokenAndAdmin, async (req, res) => {
 });
 
 // ---------------- DELETE -------------------
-productRouter.route(':/id').delete(verifyTokenAndAdmin, async (req, res) => {
+productRouter.route('/:id').delete(verifyTokenAndAdmin, async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
     res.status(200).json('Product has been deleted !');

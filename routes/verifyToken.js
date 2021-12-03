@@ -11,6 +11,7 @@ const verifyToken = (req, res, next) => {
       if (err) {
         return res.status(403).json('Token is not valid !');
       }
+      // nodejs has req.body, req.params,... this creates NEW ONE
       req.user = user;
       next();
     });
