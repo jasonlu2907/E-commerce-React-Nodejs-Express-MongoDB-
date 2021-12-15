@@ -94,8 +94,8 @@ const Slider = () => {
 
       <Wrapper slideIndex={slideIndex}>
         {/* TODO: ngFor for slides */}
-        {sliderItems.map((item) => (
-          <Slide bg={item.bg}>
+        {sliderItems.map((item, index) => (
+          <Slide bg={item.bg} key={index}>
             <ImgContainer>
               <Image src={item.img}></Image>
             </ImgContainer>
