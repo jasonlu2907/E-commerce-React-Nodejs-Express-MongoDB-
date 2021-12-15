@@ -70,7 +70,7 @@ export const popularProducts = [
   },
   {
     id:7,
-    img:"https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+    img:"https://i.ibb.co/8zKswNq/prada-pong-hawaiian-shirt-prada-printed-shirt-clothing-sleeve-fashion-long-sleeve-transparent-png-13.png",
   },
   {
     id:8,
