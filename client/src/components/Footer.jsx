@@ -9,11 +9,16 @@ import {
   Mail,
 } from '@material-ui/icons';
 
+import { mobile } from '../responesive';
+
 const Container = styled.div`
   display: flex;
   padding: 40px 20px;
   margin-bottom: 20px;
   background-color: rgba(0, 0, 0, 0.3);
+  ${mobile({
+    flexDirection: 'column',
+  })}
 `;
 
 //TODO: LEFT SIDE
@@ -48,6 +53,9 @@ const SocialIcon = styled.div`
 const Center = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({
+    display: 'none'
+  })}
 `;
 const Title = styled.h3`
   margin-bottom: 30px;
@@ -69,6 +77,9 @@ const ListItem = styled.li`
 const Right = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({
+    backgroundColor: '#fff8f8'
+  })}
 `;
 const ContactItem = styled.div`
   margin-bottom: 20px;
