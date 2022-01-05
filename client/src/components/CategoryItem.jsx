@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { mobile } from '../responesive';
 
+import { Link } from 'react-router-dom';
+
 const Container = styled.div`
   flex: 1;
   margin: 3px;
@@ -12,7 +14,7 @@ const Image = styled.img`
   height: 80vh;
   object-fit: cover;
   ${mobile({
-    height: '30vh'
+    height: '30vh',
   })}
 `;
 const Info = styled.div`
@@ -40,11 +42,13 @@ const Button = styled.button`
 const CategoryItem = ({ ditem }) => {
   return (
     <Container>
-      <Image src={ditem.img} />
-      <Info>
-        <Title>{ditem.title}</Title>
-        <Button>SHOP NOW</Button>
-      </Info>
+      <Link to={`/products/${ditem.cat}`}>
+        <Image src={ditem.img} />
+        <Info>
+          <Title>{ditem.title}</Title>
+          <Button>SHOP NOW</Button>
+        </Info>
+      </Link>
     </Container>
   );
 };
