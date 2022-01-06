@@ -13,7 +13,7 @@ import {
 /*Components */
 import Home from './pages/Home';
 import ProductList from './pages/ProductList';
-import Product from './pages/Product';
+import ProductDetail from './pages/ProductDetail';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
@@ -26,7 +26,7 @@ export const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products/:category' element={<ProductList />} />
-        <Route path='/product/:id' element={<Product />} />
+        <Route path='/product/:id' element={<ProductDetail />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
         <Route path='/register' element={<Register />} />

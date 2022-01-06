@@ -7,6 +7,10 @@ import { Add, Remove } from '@material-ui/icons';
 // import Image from '@material-ui/system';
 import { mobile } from '../responesive';
 
+import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { publicRequest } from '../requestMethods';
+
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
@@ -113,51 +117,81 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split('/')[2];
+
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState('');
+  const [size, setSize] = useState('');
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get('/products/find/' + id);
+        setProduct(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getProduct();
+  }, [id]);
+
+  const handlequantity = (type) => {
+    if (type === 'dec') quantity > 1 ? setQuantity(quantity - 1) : 1;
+    else setQuantity(quantity + 1);
+  };
+  const handleClick = () => {
+    
+  }
   return (
     <Container>
       <Navbar />
       <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src='https://i.ibb.co/S6qMxwr/jean.jpg'></Image>
+          <Image src={product.img}></Image>
         </ImgContainer>
 
         <InfoContainer>
-          <Tilte>Denim</Tilte>
+          <Tilte>{product.title}</Tilte>
           <Desc>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-            explicabo tempora minus aspernatur sint quae, dolor aperiam
-            pariatur! Exercitationem dolorum cum a reprehenderit esse odio,
-            inventore quo blanditiis. Repudiandae, rerum.
+            {product.desc} Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Veritatis explicabo tempora minus aspernatur sint quae, dolor
+            aperiam pariatur! Exercitationem dolorum cum a reprehenderit esse
+            odio, inventore quo blanditiis. Repudiandae, rerum.
           </Desc>
-          <Price>$20</Price>
+          <Price>${product.price}</Price>
 
           <FilterContainer>
             <Filter>
               <FilterTilte>Color:</FilterTilte>
-              <FilterColor color='darkblue' />
-              <FilterColor color='black' />
-              <FilterColor color='gray' />
+              {product.color?.map((element) => (
+                <FilterColor
+                  color={element}
+                  key={element}
+                  onClick={() => setColor(element)}
+                />
+              ))}
             </Filter>
             <Filter>
               <FilterTilte>Size:</FilterTilte>
-              <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
+              <FilterSize onChange={(e) => setSize(e.target.value)}>
+                {product.size?.map((element) => (
+                  <FilterSizeOption key={element}>{element}</FilterSizeOption>
+                ))}
               </FilterSize>
             </Filter>
           </FilterContainer>
 
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick={() => handlequantity('dec')} />
+              <Amount>{quantity}</Amount>
+              <Add onClick={() => handlequantity('inc')} />
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={() => handleClick}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

@@ -5,6 +5,8 @@ import {
   FavoriteBorderOutlined,
 } from '@material-ui/icons';
 
+import { Link } from 'react-router-dom';
+
 const Info = styled.div`
   opacity: 0;
   width: 100%;
@@ -32,7 +34,7 @@ const Container = styled.div`
   background-color: #f5fbfd;
   position: relative;
 
-  &:hover ${Info}{
+  &:hover ${Info} {
     opacity: 1;
   }
 `; // Code chay tu tren xuong, muon hover Info phai declare Info truoc Container
@@ -77,7 +79,9 @@ const Product = ({ product }) => {
         </Icon>
 
         <Icon>
-          <SearchOutlined />
+          <Link to={`/product/${product._id}`}>
+            <SearchOutlined />
+          </Link>
         </Icon>
 
         <Icon>
