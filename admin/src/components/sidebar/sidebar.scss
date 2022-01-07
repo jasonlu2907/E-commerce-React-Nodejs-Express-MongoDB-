@@ -1,0 +1,45 @@
+.sidebar {
+  flex: 1;
+  background-color: #fff;
+  // 100vh would overflow since topbar is 50px
+  height: calc(100vh - 50px);
+  position: sticky;
+  top: 50px; // because topbar's height is 50px;
+
+  &-wrapper {
+    padding: 20px;
+    color: #555;
+  }
+
+  &-menu {
+    margin-bottom: 10px;
+  }
+
+  &-title {
+    font-size: 13px;
+    color: rgb(77, 76, 76);
+  }
+
+  &-list {
+    list-style: none;
+    padding: 5px;
+  }
+
+  &-list_item {
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+
+    &:hover,
+    &.active {
+      background-color: rgb(247, 236, 236);
+    }
+  }
+
+  &-icon {
+    margin-right: 5px;
+    font-size: 20px !important;
+  }
+}
