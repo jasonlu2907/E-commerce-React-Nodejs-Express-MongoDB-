@@ -28,4 +28,9 @@ align-items: center;
     color: rgba(255, 0, 0, 0.747);
     cursor: pointer;
   }
+
+  &-action {
+    display: flex;
+    align-items: center;
+  }
 }

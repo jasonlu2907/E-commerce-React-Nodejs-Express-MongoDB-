@@ -1,0 +1,175 @@
+.user {
+  flex: 4;
+  padding: 20px;
+
+  &-title_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-addBtn {
+    width: 80px;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: teal;
+    font-size: 16px;
+  }
+
+  &-container {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  &-show {
+    flex: 1;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  
+  }
+
+  &-update {
+    flex: 2;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    margin-left: 20px;
+  }
+}
+
+.user-show {
+  flex: 1;
+
+  // TOP of the user detail information
+  &--top {
+    display: flex;
+    align-items: center;
+
+    &_title{
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+      
+    }
+  }
+  &--username {
+    font-weight: 600;
+
+  }
+  &--jobtitle {
+    font-weight: 300;
+  }
+
+  &--img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  // BOTTOM of the user detail information
+  &--bottom {
+    margin: 20px 0;
+
+    &_title {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgb(180, 175, 175);
+    }
+
+    &_infoContainer {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      color: #444
+    }
+
+    &_icon {
+      font-size: 16px !important;
+    }
+
+    &_infoTitle {
+      margin-left: 10px;
+    }
+  }
+}
+
+.user-update {
+  flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  margin-left: 20px;
+
+  &--title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &--form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  // LEFT of Edit quadrant
+  &--left {
+
+  }
+  &--item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    &>label {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+  }
+  &--input {
+    font-size: 20px;
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+
+    &:focus {
+      outline: solid black 1px;
+      border: none;
+    }
+  }
+
+  // RIGHT of Edit quadrant
+  &--right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &--upload {
+    display: flex;
+    align-items: center;
+  }
+
+  &--img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  &--icon {
+    cursor: pointer;
+  }
+  &--btn {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: darkblue;
+    color: white;
+    font-weight: 600;
+  }
+}
