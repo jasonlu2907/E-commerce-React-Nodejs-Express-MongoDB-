@@ -16,6 +16,7 @@
     color: white;
     background-color: teal;
     font-size: 16px;
+    cursor: pointer;
   }
 
   &-container {
@@ -116,9 +117,9 @@
   }
 
   // LEFT of Edit quadrant
-  &--left {
+  // &--left {
 
-  }
+  // }
   &--item {
     display: flex;
     flex-direction: column;

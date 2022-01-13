@@ -7,13 +7,16 @@ import {
   PhoneAndroid,
   Publish,
 } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 const User = () => {
   return (
     <div className='user'>
       <div className='user-title_container'>
         <h1 className='title'>Edit User</h1>
-        <button className='user-addBtn'>Create</button>
+        <Link to='/newUser'>
+          <button className='user-addBtn'>Create</button>
+        </Link>
       </div>
 
       <div className='user-container'>
@@ -118,12 +121,12 @@ const User = () => {
                   alt=''
                   className='user-update--img'
                 />
-                <label htmlFor="my-file">
-                  <Publish className="user-update--icon" />
+                <label htmlFor='my-file'>
+                  <Publish className='user-update--icon' />
                 </label>
-                <input type="file" id="my-file" style={{ display: "none" }} />
+                <input type='file' id='my-file' style={{ display: 'none' }} />
               </div>
-              <button className="user-update--btn">Update</button>
+              <button className='user-update--btn'>Update</button>
             </div>
           </form>
         </div>

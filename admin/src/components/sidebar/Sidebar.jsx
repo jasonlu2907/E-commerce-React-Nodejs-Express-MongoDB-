@@ -14,7 +14,7 @@ import {
   WorkOutline,
   Report,
 } from '@material-ui/icons';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
@@ -40,14 +40,18 @@ const Sidebar = () => {
         <div className='sidebar-menu'>
           <h3 className='sidebar-title'>Quick Menu</h3>
           <ul className='sidebar-list'>
-            <li className='sidebar-list_item active'>
-              <PermIdentity className='sidebar-icon' />
-              User
-            </li>
-            <li className='sidebar-list_item'>
-              <Storefront className='sidebar-icon' />
-              Products
-            </li>
+            <Link to='/users' className="link">
+              <li className='sidebar-list_item '>
+                <PermIdentity className='sidebar-icon' />
+                Users
+              </li>
+            </Link>
+            <Link to="/products" className="link">
+              <li className='sidebar-list_item'>
+                <Storefront className='sidebar-icon' />
+                Products
+              </li>
+            </Link>
             <li className='sidebar-list_item'>
               <AttachMoney className='sidebar-icon' />
               Transactions
@@ -61,7 +65,7 @@ const Sidebar = () => {
         <div className='sidebar-menu'>
           <h3 className='sidebar-title'>Notifications</h3>
           <ul className='sidebar-list'>
-            <li className='sidebar-list_item active'>
+            <li className='sidebar-list_item '>
               <MailOutline className='sidebar-icon' />
               Mail
             </li>
@@ -78,7 +82,7 @@ const Sidebar = () => {
         <div className='sidebar-menu'>
           <h3 className='sidebar-title'>Staff</h3>
           <ul className='sidebar-list'>
-            <li className='sidebar-list_item active'>
+            <li className='sidebar-list_item '>
               <WorkOutline className='sidebar-icon' />
               Manage
             </li>
