@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Product from './Product';
-import { popularProducts } from '../data';
+// import { popularProducts } from '../data';
 
 import React, { useState, useEffect } from 'react';
 

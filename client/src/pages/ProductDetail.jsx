@@ -11,6 +11,9 @@ import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { publicRequest } from '../requestMethods';
 
+import { addProduct } from '../redux/cartRedux';
+import { useDispatch } from 'react-redux';
+
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
@@ -124,6 +127,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState('');
   const [size, setSize] = useState('');
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -138,13 +142,16 @@ const Product = () => {
     getProduct();
   }, [id]);
 
-  const handlequantity = (type) => {
-    if (type === 'dec') quantity > 1 ? setQuantity(quantity - 1) : 1;
+  const handleQuantity = (type) => {
+    if (type === 'dec')
+      quantity > 1 ? setQuantity(quantity - 1) : setQuantity(1);
     else setQuantity(quantity + 1);
   };
+
   const handleClick = () => {
-    
-  }
+    dispatch(addProduct({ ...product, quantity, color, size }));
+  };
+
   return (
     <Container>
       <Navbar />
@@ -187,11 +194,11 @@ const Product = () => {
 
           <AddContainer>
             <AmountContainer>
-              <Remove onClick={() => handlequantity('dec')} />
+              <Remove onClick={() => handleQuantity('dec')} />
               <Amount>{quantity}</Amount>
-              <Add onClick={() => handlequantity('inc')} />
+              <Add onClick={() => handleQuantity('inc')} />
             </AmountContainer>
-            <Button onClick={() => handleClick}>ADD TO CART</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

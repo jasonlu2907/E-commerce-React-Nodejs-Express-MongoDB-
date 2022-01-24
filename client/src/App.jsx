@@ -19,12 +19,12 @@ import Login from './pages/Login';
 import Cart from './pages/Cart';
 
 export const App = () => {
-  const user = true;
+  const user = false;
   
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route exact path='/' element={<Home />} />
         <Route path='/products/:category' element={<ProductList />} />
         <Route path='/product/:id' element={<ProductDetail />} />
         <Route path='/cart' element={<Cart />} />
