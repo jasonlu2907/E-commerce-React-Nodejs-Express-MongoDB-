@@ -134,6 +134,8 @@ const Product = () => {
       try {
         const res = await publicRequest.get('/products/find/' + id);
         setProduct(res.data);
+        setSize(res.data.size[0]);
+        setColor(res.data.color[0]);
       } catch (error) {
         console.log(error);
       }
@@ -198,7 +200,7 @@ const Product = () => {
               <Amount>{quantity}</Amount>
               <Add onClick={() => handleQuantity('inc')} />
             </AmountContainer>
-            <Button onClick={handleClick}>ADD TO CART</Button>
+            <Button onClick={() => handleClick()}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

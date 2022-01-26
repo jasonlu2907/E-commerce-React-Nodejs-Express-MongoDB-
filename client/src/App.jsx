@@ -2,7 +2,6 @@ import React from 'react';
 
 // Router
 // Reminder: Switch from v6 react-router being replaced by Routes
-import { render } from 'react-dom';
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +16,7 @@ import ProductDetail from './pages/ProductDetail';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
+import Success from './pages/Success';
 
 export const App = () => {
   const user = false;
@@ -30,6 +30,8 @@ export const App = () => {
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/success' element={<Success />} />
+
       </Routes>
     </Router>
   );
