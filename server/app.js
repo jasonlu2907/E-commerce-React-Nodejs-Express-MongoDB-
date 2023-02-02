@@ -30,3 +30,7 @@ app.use('/api/v1/checkout', checkoutRoute);
 
 
 module.exports = app;
+
+
+//admin 12345 admin@gmail.com
+//bilu 123 bilu@gmail.com
