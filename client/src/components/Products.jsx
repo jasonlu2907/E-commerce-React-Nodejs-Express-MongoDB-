@@ -20,10 +20,15 @@ const Products = ({ cate, filters, sort }) => {
   useEffect(() => {
     const getProducts = async () => {
       try {
+        // const products = await axios.get(
+        //   cate
+        //     ? `https://siteecommerceapi.herokuapp.com/api/v1/products?category=${cate}`
+        //     : `https://siteecommerceapi.herokuapp.com/api/v1/products`
+        // );
         const products = await axios.get(
           cate
-            ? `https://siteecommerceapi.herokuapp.com/api/v1/products?category=${cate}`
-            : `https://siteecommerceapi.herokuapp.com/api/v1/products`
+            ? `http://localhost:4000/api/v1/products?category=${cate}`
+            : `http://localhost:4000/api/v1/products`
         );
         // console.log(products);
         setProducts(products.data);

@@ -4,6 +4,7 @@ import Announcement from '../components/Announcement';
 import Footer from '../components/Footer';
 import { Add, Remove } from '@material-ui/icons';
 import { mobile } from '../responesive';
+import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
@@ -124,6 +125,7 @@ const ProductPrice = styled.div`
   })}
 `;
 
+// eslint-disable-next-line no-unused-vars
 const Hr = styled.hr`
   background-color: #eee;
   border: none;
@@ -192,9 +194,11 @@ const Cart = () => {
       <Wrapper>
         <Title>MY BAG</Title>
         <Top>
-          <TopButton>Continue Shopping</TopButton>
+          <Link to='/products/accessories'>
+            <TopButton>Continue Shopping</TopButton>
+          </Link>
           <TopTexts>
-            <TopText>Shopping Bag (2)</TopText>
+            <TopText>Shopping Bag ({cart.quantity})</TopText>
             <TopText>Your wishlist</TopText>
           </TopTexts>
           <TopButton type='filled'>Checkout Now</TopButton>

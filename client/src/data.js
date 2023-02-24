@@ -1,7 +1,7 @@
 export const sliderItems = [
   {
     id: 1,
-    img: "https://i.ibb.co/xzmH4Mz/108222644-3092734584155328-5610403637591175056-n.jpg",
+    img: "https://i.postimg.cc/Y9WXS73W/woman.png",
     title: "SUMMER SALE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "f5fafd",
@@ -58,7 +58,7 @@ export const popularProducts = [
   },
   {
     id:4,
-    img:"https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+    img:"https://i.postimg.cc/3NGzzp6z/suit.png",
   },
   {
     id:5,

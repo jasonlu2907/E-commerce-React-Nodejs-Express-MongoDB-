@@ -20,7 +20,7 @@ import Success from './pages/Success';
 
 export const App = () => {
   const user = false;
-  
+
   return (
     <Router>
       <Routes>
@@ -29,9 +29,11 @@ export const App = () => {
         <Route path='/product/:id' element={<ProductDetail />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route
+          path='/register'
+          element={user ? <Navigate to='/' /> : <Register />}
+        />
         <Route path='/success' element={<Success />} />
-
       </Routes>
     </Router>
   );

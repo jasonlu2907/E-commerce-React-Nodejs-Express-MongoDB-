@@ -12,6 +12,7 @@ const cartSlice = createSlice({
       state.quantity += 1;
 
       //payload is basically new product
+      // cart quantity and payload quantity is different. Buy 2 same jackets counts toward 1 cart quantity
       state.products.push(action.payload);
       state.total += action.payload.price * action.payload.quantity;
     },

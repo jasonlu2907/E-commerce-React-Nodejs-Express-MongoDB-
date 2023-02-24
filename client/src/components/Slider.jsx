@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons';
 import { sliderItems } from '../data';
@@ -11,7 +12,7 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
   ${mobile({
-    display: 'none'
+    display: 'none',
   })}
 `;
 
@@ -106,7 +107,9 @@ const Slider = () => {
             <InfoContainer>
               <Tilte>{item.title}</Tilte>
               <Desc>{item.desc} </Desc>
-              <Button>SHOP NOW</Button>
+              <Link to='/products/accessories'>
+                <Button>SHOP NOW</Button>
+              </Link>
             </InfoContainer>
           </Slide>
         ))}
