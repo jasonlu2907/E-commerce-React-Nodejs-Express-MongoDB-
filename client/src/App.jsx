@@ -17,9 +17,10 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
 import Success from './pages/Success';
+import { useSelector } from 'react-redux';
 
 export const App = () => {
-  const user = false;
+  const user = useSelector((state) => state.user.currentUser);
 
   return (
     <Router>

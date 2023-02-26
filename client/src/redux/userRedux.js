@@ -8,6 +8,7 @@ const userSlice = createSlice({
     error: false,
   },
   reducers: {
+    //a payload is now a user
     loginStart: (state) => {
       state.isFetching = true;
     },
