@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema(
     password: { type: String, required: true },
     isAdmin: { type: Boolean, default: false },
     // createdDate: { type: Date, required: true },
+    img: { type: String },
   },
   { timestamps: true } // Schema's 2nd param replace line 9
 );
